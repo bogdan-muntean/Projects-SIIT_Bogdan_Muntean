@@ -1,0 +1,46 @@
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+:root,
+.a,
+button {
+  font-weight: 500;
+  font-size: 16px;
+}
+button {
+  border-radius: 10px;
+  display: inline-block;
+  padding: 9px 25px;
+  margin-left: 20px;
+}
+
+#blog_logo {
+  display: block;
+  margin-right: auto;
+}
+header {
+  background-color: rgba(49, 191, 196, 0.171);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+article {
+  margin: 20px 20px;
+  border-style: solid;
+  box-sizing: border-box;
+  padding: 10px;
+  float: left;
+}
+
+.inputs {
+  justify-content: space-between;
+}
