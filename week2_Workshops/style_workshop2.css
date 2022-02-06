@@ -1,0 +1,31 @@
+html {
+  background-color: bisque;
+}
+aside {
+  display: block;
+  float: left;
+  border-right-style: solid;
+  padding: 10px;
+  padding-bottom: 200px;
+  position: ;
+}
+.selections {
+  display: block;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  vertical-align: baseline;
+}
+article {
+  position: ;
+}
+img {
+  weight: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+.info {
+  flex: auto;
+  padding: 10px 10px 10px 10%;
+  display: block;
+}
