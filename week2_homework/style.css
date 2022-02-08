@@ -1,20 +1,41 @@
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* Pentru toate html-urile */
 * {
   box-sizing: border-box;
-  margin: 0;
+  margin: 2px;
   padding: 0;
   color: black;
 }
-:root,
-.a,
-button {
-  font-weight: 500;
+
+:root {
   font-size: 16px;
 }
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background-color: rgba(49, 191, 196, 0.171);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+main {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+footer {
+  width: 100%;
+  height: 50px;
+  background-color: aquamarine;
+  box-sizing: border-box;
+}
+
+/* Pentru Home.html */
 button {
   border-radius: 10px;
   display: inline-block;
@@ -24,23 +45,28 @@ button {
 
 #blog_logo {
   display: block;
-  margin-right: auto;
-}
-header {
-  background-color: rgba(49, 191, 196, 0.171);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px;
-}
-article {
-  margin: 20px 20px;
-  border-style: solid;
-  box-sizing: border-box;
-  padding: 10px;
-  float: left;
 }
 
-.inputs {
-  justify-content: space-between;
+article {
+  margin: 20px 20px;
+  border: 2px black solid;
+  padding: 2px;
+  width: 300px;
+  height: 270px;
+  box-sizing: border-box;
+}
+
+.imagine_articol {
+  width: 250px;
+  height: 200px;
+}
+
+/* Pentru Contact html  */
+.space-top {
+  margin-top: 30px;
+}
+
+/* Pentru articolele post-one si post-two */
+td {
+  padding-left: 6px;
 }
