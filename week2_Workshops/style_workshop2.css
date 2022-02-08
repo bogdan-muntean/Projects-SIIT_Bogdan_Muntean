@@ -20,12 +20,15 @@ article {
   position: ;
 }
 img {
-  weight: 100px;
-  height: 100px;
-  border-radius: 50px;
+  weight: 250px;
+  height: 250px;
+  border-radius: 125px;
+  display: block;
+  margin: 10px auto 20px;
 }
 .info {
   flex: auto;
   padding: 10px 10px 10px 10%;
   display: block;
+  margin-left: 10px;
 }
