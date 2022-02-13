@@ -9,6 +9,7 @@ aside {
   padding-bottom: 200px;
   position: ;
 }
+ul,
 li {
   display: block;
   width: 100px;
@@ -31,4 +32,7 @@ img {
   padding: 10px 10px 10px 10%;
   display: block;
   margin-left: 10px;
+}
+ul {
+  padding-left: 0px;
 }
