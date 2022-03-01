@@ -12,11 +12,10 @@
         <div id="blog_logo">My Blog</div>
         <nav>
             <a href="home.html"><button>Home</button></a>
-            <a href="home.html"><button>Home</button></a>
             <a href="contact.html"><button>Contact</button></a>
         </nav>
     </header>
-    <main>
+    <main style="display:contents;">
     <p>
     "Mâna invizibilă" (sau "Mâna de ajutor")<br>
     "Mâna invizibilă" este o teorie economică dezvoltată de Adam Smith. Propune că atunci când oamenii acționează în
@@ -77,6 +76,28 @@
             <td>Societatea suportă riscul. Nimeni nu devine bogat sau sărac (teoretic).</td>
         </tr>
     </table>
+        <!-- Buton care trimite catre top -->
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        <script>
+            //Get the button
+            var mybutton = document.getElementById("myBtn");
+
+            // When the user scrolls down from the top of the document, show the button
+            window.onscroll = function () { scrollFunction() };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 2 || document.documentElement.scrollTop > 2) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
     </main>
     <footer>
         Blog realizat de Bogdan Muntean.
