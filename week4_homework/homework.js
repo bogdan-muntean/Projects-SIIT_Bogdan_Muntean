@@ -2,11 +2,11 @@ var array = [ 1, 2, 3, 4, 56, 232, 45, 12, 4, 6, 8, 8,8, 1, 1]
 
 // 1. display in the console the numbers from 1 to 20
 
-for(var i = 0; i < array.length; i++){
-    if(array[i] >= 1 && array[i] <= 20){
-        console.log(array[i]);
-    }
-}
+// for(var i = 0; i < array.length; i++){
+//     if(array[i] >= 1 && array[i] <= 20){
+//         console.log(array[i]);
+//     }
+// }
 
 // 2. display in the console the odd numbers from 1 to 20
 
@@ -52,13 +52,13 @@ for(var i = 0; i < array.length; i++){
 //   0 1 0 1
 //   1 0 1 0
 
-// for(var i = 0; i < 4; i++){
-//     let array =[];
-//     for(var j = 0; j < 4; j++){
-//         if(i === j || i === (j-2) || j === (i-2))
-//             array += "0 ";
-//         else
-//             array += "1 ";
-//     }
-//     console.log(array)
-// }
+for(var i = 0; i < 4; i++){
+    let array =[];
+    for(var j = 0; j < 4; j++){
+        if( (i + j) % 2 === 0)        // Ori  i === j || i === (j-2) || j === (i-2)
+            array += "0 ";
+        else
+            array += "1 ";
+    }
+    console.log(array)
+}
