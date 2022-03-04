@@ -1,0 +1,22 @@
+html {
+  background-color: antiquewhite;
+}
+body {
+  display: flex;
+}
+header {
+  margin: 10px;
+  border-bottom: 10px solid gray;
+  height: 100%;
+  width: 100%;
+}
+main {
+  height: 100%;
+  width: 100%;
+}
+.box-top {
+  display: flex;
+  border: 3px solid black;
+  padding: 10px;
+  justify-content: center;
+}
