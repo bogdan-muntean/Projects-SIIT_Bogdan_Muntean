@@ -1,0 +1,16 @@
+body{
+    background-color: bisque;
+}
+.game-container{
+    width: 400px;
+    height: 400px;
+    background-color: rgb(219, 221, 99);
+    border: 2px solid black;
+}
+#player{
+    height: 40px;
+    width: 40px;
+    background-color: red;
+    position: relative;
+    top: 30px;
+}
