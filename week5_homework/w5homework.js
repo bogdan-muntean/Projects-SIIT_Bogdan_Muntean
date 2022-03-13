@@ -1,5 +1,5 @@
 //functie care creeaza comentariul
-function createItem(text){
+function createComment(text){
     let itemHTML = document.createElement("li")
     itemHTML.innerHTML = text
 
@@ -37,7 +37,7 @@ var commentList=["first comment", "second comment"];
 var ulHTML = document.createElement("ul")
 for(let i = 0; i < commentList.length; i++){
     let commentValue = commentList[i];
-    let itemHTML = createItem(commentValue);
+    let itemHTML = createComment(commentValue);
     ulHTML.appendChild(itemHTML)
 }
 //Le punem in body
@@ -51,7 +51,7 @@ var addButton = document.getElementById("addButton");
 
 addButton.onclick = function(){
     console.log(inputComment.value)
-    let itemNou= createItem(inputComment.value);
+    let itemNou= createComment(inputComment.value);
     ulHTML.appendChild(itemNou)
 }
 
