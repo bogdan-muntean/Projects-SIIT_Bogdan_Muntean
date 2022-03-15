@@ -30,16 +30,16 @@ for(let i = 0; i < obstaclesClass.length; i++){
 
 
 // //	3.Player daca intalneste un obstacol, nu poate trece de el. Ne folosim de array-ul cu obiecte.
-function restrictedArea(obstaclesList){
-    for(let i = 0; i < obstaclesList.length; i++){
+// function restrictedArea(obstaclesList){
+//     for(let i = 0; i < obstaclesList.length; i++){
 
 
-        if(player.style.top === stopArea || player.style.left === stopArea)
-            return true;
-        else
-            return false;
-    }
-}
+//         if(player.style.top === stopArea || player.style.left === stopArea)
+//             return true;
+//         else
+//             return false;
+//     }
+// }
 
 // function coordinateBoxes(box, player){
 //     //Coordinate Box
