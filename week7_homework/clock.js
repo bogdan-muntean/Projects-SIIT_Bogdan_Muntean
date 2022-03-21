@@ -34,23 +34,23 @@ console.log(secondValue)
 console.log(minuteValue)
 console.log(hourValue)
  
+var myInterval = setInterval(incrementTimer, 1000)
 // c. Sa incrementam secundele, incepem de la zero, iar dupa ce trece o secunda sa cresca cu 1
-function startAction(){
-    setInterval( () => {
-        console.log("se adauga o secunda")
-        secondValue++;
-    // d. Sa crestem minutele iar secundele vor incepe de la zero
-        if(secondValue == 60){
-            minuteValue++;
-            secondValue = 0;
-        }
+function incrementTimer(){
+    console.log("se adauga o secunda")
+    secondValue++;
+// d. Sa crestem minutele iar secundele vor incepe de la zero
+    if(secondValue == 60){
+        minuteValue++;
+        secondValue = 0;
+    }
 
-    // e. Sa crestem orele iar minutele vor incepe de la zero
-        if(minuteValue == 60){
-            hourValue++;
-            minuteValue = 0;
-        }
-    // f. Sa adaugam '0' in fata cand este valoare de la 1 la 9, fiind o singura unitate.
+// e. Sa crestem orele iar minutele vor incepe de la zero
+    if(minuteValue == 60){
+        hourValue++;
+        minuteValue = 0;
+    }
+// f. Sa adaugam '0' in fata cand este valoare de la 1 la 9, fiind o singura unitate.
         function addZero(value) {
             if(value >= 1 && value <= 9){
                 value = `0${value}`;
@@ -65,22 +65,39 @@ function startAction(){
         secondHtml.innerHTML = addZero(secondValue);
         minuteHtml.innerHTML = addZero(minuteValue);
         hourHtml.innerHTML = addZero(hourValue);
-    }, 1000)
 }
+
 
 
 // 2.	Adaugati un button plus functionalitate pentru start timer
+//daca s-a apasat pe buton schimbam culoarea,
 const startHtml = document.getElementById("startTimer");
-startHtml.addEventListener("click", startAction);
+startHtml.addEventListener("click", function(){
+    myInterval;    
+    console.log("s-a apelat start")
+})
+
+// function (){ 
+//     myInterval()
+//     if(startHtml.style.backgroundColor === "rgb(235, 190, 174)"){
+//     startHtml.style.backgroundColor = "rgb(245, 227, 200)";
+//     }
+//     else{
+//         clearInterval(startAction);
+//         startHtml.style.backgroundColor = "rgb(235, 190, 174)";
+//     }
+// });
+
+
 
 // 3.	Adaugati un button plus functionalitate pentru stop timer
-function stopTimer(){
-
-}
+const stopHtml = document.getElementById("stopTimer");
+stopHtml.addEventListener("click", function(){
+    console.log("s-a apelat stop")
+    clearInterval(myInterval)
+})
 // 4.	Adaugati un button plus functionalitate pentru reset timer
-function resetTimer(){
 
-}
 // 5.	Adaugati un button plus functionalitate pentru save timer
 function saveTimer(){
 
