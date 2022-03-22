@@ -2,9 +2,12 @@ html{
     height: 100%;
 }
 body{
-    height: 80%;
-    width: 90%;
+    height: 100%;
+    width: 95%;
     background-color: rgb(191, 210, 226);
+    font-style: oblique;
+    font-size: large;
+    font: bold;
 }
 #container{
     height: 35%;
@@ -13,7 +16,7 @@ body{
     overflow: auto;
     border: 4px solid black;
     position: relative;
-    top: 30%;
+    top: 10%;
     left: 3%;
 }
 #timer{
@@ -23,7 +26,6 @@ body{
     width: 20%;
     padding: 10px;
     font-size:27px;
-    font: bold;
     border-radius: 10px;
     position: relative;
     left: 40%;
@@ -40,7 +42,7 @@ body{
     align-items: center;
 }
 
-#startTimer, #stopTimer, #resetTimer, #saveTimer{
+#start-timer, #stop-timer, #reset-timer, #save-timer{
     display: flex;
     width: 60px;
     height: 30px;
@@ -49,7 +51,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-#startTimer:hover, #stopTimer:hover, #resetTimer:hover, #saveTimer:hover {
+#start-timer:hover, #stop-timer:hover, #reset-timer:hover, #save-timer:hover {
     cursor:pointer;
     background-color: rgb(245, 227, 200);
 }
@@ -79,6 +81,16 @@ body{
         left: 3px;
         top: 70px;
     }
+}
+#save-container{
+    width: auto;
+    height: 500px;
+    border: 1px solid black;
+    position: relative;
+    top: 13%;
+    left: 3%;
+    overflow: auto;
+    padding: 10px;
 }
 
 /* #startTimer{

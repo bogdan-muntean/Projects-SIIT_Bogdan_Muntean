@@ -5,6 +5,7 @@
 // 1.	Terminat cerintele de la workshop
 
 // a. Vream sa afisam un timer in browser, va incepe cu 00:00:00
+
 const itemHtml = document.getElementById('timer')
 itemHtml.innerHTML = `
 <span id="hours"> 00 </span>:
@@ -16,51 +17,38 @@ containerHtml.appendChild(itemHtml)    //introduce itemHtml in container, dar va
 containerHtml.insertBefore(itemHtml, containerHtml.firstChild) //inserBefore il va muta inainte de container-buttons
 
 // b. Sa definim in html cum va arata acest timer + acces in js
-
-let secondHtml = document.getElementById('seconds')
-let minuteHtml = document.getElementById('minutes')
-let hourHtml = document.getElementById('hours')
+const secondHtml = document.getElementById('seconds')
+const minuteHtml = document.getElementById('minutes')
+const hourHtml = document.getElementById('hours')
 
 console.log(secondHtml)
 console.log(minuteHtml)
 console.log(hourHtml)
 
-let secondValue = secondHtml.innerHTML
+let secondValue = secondHtml.innerHTML;
 let minuteValue = minuteHtml.innerHTML
 let hourValue = hourHtml.innerHTML
-secondValue = 0;
 
 console.log(secondValue)
 console.log(minuteValue)
 console.log(hourValue)
- 
-var myInterval = setInterval(incrementTimer, 1000)
-// c. Sa incrementam secundele, incepem de la zero, iar dupa ce trece o secunda sa cresca cu 1
+
 function incrementTimer(){
-    console.log("se adauga o secunda")
-    secondValue++;
-// d. Sa crestem minutele iar secundele vor incepe de la zero
-    if(secondValue == 60){
-        minuteValue++;
-        secondValue = 0;
-    }
-
-// e. Sa crestem orele iar minutele vor incepe de la zero
-    if(minuteValue == 60){
-        hourValue++;
-        minuteValue = 0;
-    }
-// f. Sa adaugam '0' in fata cand este valoare de la 1 la 9, fiind o singura unitate.
-        function addZero(value) {
-            if(value >= 1 && value <= 9){
-                value = `0${value}`;
-            }
-            if(value == 0){
-                value = `00`;
-            }
-            return value;
+    // c. Sa incrementam secundele, incepem de la zero, iar dupa ce trece o secunda sa cresca cu 1
+        console.log("se adauga o secunda")
+        secondValue++;
+    // d. Sa crestem minutele iar secundele vor incepe de la zero
+        if(secondValue == 60){
+            minuteValue++;
+            secondValue = 0;
         }
-
+    
+    // e. Sa crestem orele iar minutele vor incepe de la zero
+        if(minuteValue == 60){
+            hourValue++;
+            minuteValue = 0;
+        }
+    
     // g. Sa se faca update in real time ( la fiecare secunda )
         secondHtml.innerHTML = addZero(secondValue);
         minuteHtml.innerHTML = addZero(minuteValue);
@@ -68,13 +56,31 @@ function incrementTimer(){
 }
 
 
+// f. Sa adaugam '0' in fata cand este valoare de la 1 la 9, fiind o singura unitate.
+function addZero(value) {
+    if(value >= 1 && value <= 9){
+        value = `0${value}`;
+    }
+    if(value == 0){
+        value = `00`;
+    }
+    return value;
+}
 
 // 2.	Adaugati un button plus functionalitate pentru start timer
 //daca s-a apasat pe buton schimbam culoarea,
-const startHtml = document.getElementById("startTimer");
-startHtml.addEventListener("click", function(){
-    myInterval;    
-    console.log("s-a apelat start")
+let startTimerInterval;
+let clickCounterStart = 0;
+const startHtml = document.getElementById("start-timer");
+startHtml.addEventListener("click", function (){
+    if(clickCounterStart === 0){
+        if(secondValue === 0){
+            secondValue = 0;
+        }
+        startTimerInterval = setInterval(incrementTimer, 1000)
+        clickCounterStart++;
+    } 
+    
 })
 
 // function (){ 
@@ -88,20 +94,39 @@ startHtml.addEventListener("click", function(){
 //     }
 // });
 
-
-
 // 3.	Adaugati un button plus functionalitate pentru stop timer
-const stopHtml = document.getElementById("stopTimer");
+const stopHtml = document.getElementById("stop-timer");
 stopHtml.addEventListener("click", function(){
     console.log("s-a apelat stop")
-    clearInterval(myInterval)
+    clickCounterStart = 0;
+    clearInterval(startTimerInterval)
 })
 // 4.	Adaugati un button plus functionalitate pentru reset timer
+const resetHtml = document.getElementById("reset-timer");
+resetHtml.addEventListener("click", function(){
+    secondHtml.innerHTML = `00`;
+    minuteHtml.innerHTML = `00`;
+    hourHtml.innerHTML = `00`;
 
+    secondValue = secondHtml.innerHTML;
+    minuteValue = minuteHtml.innerHTML
+    hourValue = hourHtml.innerHTML
+
+    clearInterval(startTimerInterval)
+
+    clickCounterStart = 0;
+    startTimerInterval = setInterval(incrementTimer, 1000)
+})
 // 5.	Adaugati un button plus functionalitate pentru save timer
-function saveTimer(){
+const saveList = document.getElementById("save-list")  // lista <ol> cu salvarile timer-ului
 
-}
+const saveHtml = document.getElementById("save-timer")
+saveHtml.addEventListener("click", function saveTimer(){
+    const newSaveHtml = document.createElement("li");
+    saveList.appendChild(newSaveHtml)
+
+    newSaveHtml.innerHTML = `${addZero(hourValue)} : ${addZero(minuteValue)} : ${addZero(secondValue)}`
+})
 
 // Recomand sa folositi functii pentru fiecare. De exemplu: startTimer, stopTimer, resetTimer, saveTimer
 // Tips: General: Se fac in html 4 buttoane cu id-uri unice si se 
