@@ -5,7 +5,15 @@ html,body{
 }
 
 #todos-box{
-    width: 400px;
+    width: 50vw;
     height: 400px;
-    background-color: aquamarine;
+    border: 1px solid black;
+    margin-top: 40px;
+    position: relative;
+    left: 25%;
+}
+#input-box{
+    position: flex;
+    width: 50vw;
+    left: 25%;
 }

@@ -1,52 +1,52 @@
 // Homework todo server
 // 1.	Sa afisam o lista de TODO items
-var baseURL = "http://localhost:3000";
+const baseURL = "http://localhost:3000";
 const boxTodosHtml = document.getElementById("todo-box");
 const todoListHtml = document.getElementById("todo-list");
 
 function displayTodos(){
-var todoItems;
-for(let i = 0; i < 3; i++){
-    console.log("to do");
-    // const listHtml = document.createElement("li");
-    // listHtml.innerText = todoItems['todos'][i]['name'];
-    // console.log(listHtml)
-    // todoListHtml.innerHTML = listHtml;
-
-fetch(`${baseURL}/todos/${i}`, {
-    method: 'GET',
-})
-.then(function(response){
-    console.log("Afisam lista de ToDo-uri");
-    console.log(response);
-    return response.json();
-})
-.then(function(todos){
-    console.log("Lista de todo-uri este: ", todos[i]);
-    // todoItems = todos;
-})
-}
+    fetch(`${baseURL}/todos`, {
+        method: 'GET',
+    })
+    .then(function(response){
+        console.log("Success of process" ,response);
+        return response.json();
+    })
+    .then(function(todos){
+        const todoItems = todos 
+        console.log("Lista de todo-uri este: ", todoItems);
+        for(let i = 0; i < todoItems.length; i++){
+        console.log("todo " ,i);
+        const listHtml = document.createElement("li");
+        listHtml.innerText = todoItems[i].name;
+        console.log(listHtml)
+        todoListHtml.appendChild(listHtml);
+        }
+    })
 }
 
 displayTodos();
 
 
 // 2.	Sa permitem adaugarea unui TODO
-function addTodo(text){
-    const newTodo = {
-        name: text,
-        completed: false
-    };
+// function addTodo(text){
+//     const textTodo = text;
+//     const newTodo = {
+//         name: textTodo,
+//         completed: false
+//     };
     
-    fetch(`${baseURL}/todos`,{
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newTodo)
-    })
-}
+//     fetch(`${baseURL}/todos`,{
+//         method: "POST",
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(newTodo)
+//     })
+// }
 // addTodo("cumparaturi");
+// addTodo("de plimbat cainele");
+
 
 
 // 3.	Sa stergem un TODO
