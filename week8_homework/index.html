@@ -10,16 +10,18 @@
 </head>
 <body>
 <div id="input-box">
-    <label id="input-label"for="text-input">Introduce here your todo: </label>
-    <input type="text-input">
-    <button>Add todo</button>
+    <label id="input-label" for="input-text"  class="input-tools">Introduce here your todo: </label>
+    <input id="input-text" type="text" class="input-tools">
+    <button id="input-button" class="input-tools"> Add todo</button>
 </div>
-<div id="todos-box">
-    <ul id="todo-list">
-        <li>First todo</li>
-    </ul>
+<div id="todo-box">
+    <ul id="todo-list"></ul>
 </div>
 
-<script src="./w8_homework.js"></script>
+<script src="./api.js"></script>
+<script src="./addTodo.js"></script>
+<script src="./removeTodo.js"></script>
+<script src="./updateTodo.js"></script>
+<script src="./displayTodos.js"></script>
 </body>
 </html>
