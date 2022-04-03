@@ -3,21 +3,24 @@
 // •	folosim PUT http://localhost:3000/todos/:id + body
 
 function createCheckButton(todo){
-    const checkButton = document.createElement("button")
+    const checkButton = document.createElement("input")
+    checkButton.type = "checkbox";
+    checkButton.classList.add("checkboxes");
+
     if(todo.completed === false){
-        checkButton.innerHTML = "Uncheck";
+        checkButton.checked = false;
 
         checkButton.onclick = function(){
             updateTodo(todo, false).then()
-            checkButton.innerHTML = "Check";
+            checkButton.checked = true;
         }
     }
     if(todo.completed === true){
-        checkButton.innerHTML = "Check";
+        checkButton.checked = true;
 
         checkButton.onclick = function(){
             updateTodo(todo, true).then()
-            checkButton.innerHTML = "Uncheck";
+            checkButton.checked = false;
         }
     }
     return checkButton;

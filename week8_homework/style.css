@@ -31,6 +31,10 @@ button{
     position: relative;
     left: 10px;
 }
+.checkboxes{
+    position: relative;
+    left: 20px;
+}
 
 @media(max-width: 630px){
     #input-box{

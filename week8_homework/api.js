@@ -26,30 +26,15 @@ function postTodo(newTodo){
 
 //Functia pentru 4. Update todo
 function updateTodo(todo, check) {
-    if(check === false){
-        const updateTodoId = todo.id;
-        const newObjectTodo = todo;
-        newObjectTodo.completed = true;
+    const updateTodoId = todo.id;
+    const newObjectTodo = todo;
+    newObjectTodo.completed = !check;
 
-        fetch(`${baseURL}/todos/${updateTodoId}`, {
-        method: "PUT",
-        headers: {
-            'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify(newObjectTodo)
-        })
-    }
-    if(check === true){
-        const updateTodoId = todo.id;
-        const newObjectTodo = todo;
-        newObjectTodo.completed = false;
-
-        fetch(`${baseURL}/todos/${updateTodoId}`, {
-        method: "PUT",
-        headers: {
-            'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify(newObjectTodo)
-        })
-    }
+    fetch(`${baseURL}/todos/${updateTodoId}`, {
+    method: "PUT",
+    headers: {
+        'Content-Type': 'application/json' 
+    },
+    body: JSON.stringify(newObjectTodo)
+    })
   }
