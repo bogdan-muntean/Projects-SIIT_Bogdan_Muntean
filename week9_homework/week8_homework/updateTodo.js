@@ -1,6 +1,7 @@
 // 4.	Se face update de un todo - check/uncheck
 // •	utilizatorul poate sa faca check si uncheck din UI la un todo item
 // •	folosim PUT http://localhost:3000/todos/:id + body
+import {updateTodo} from './api.js'
 
 function createCheckButton(todo){
     const checkButton = document.createElement("input")
@@ -25,3 +26,5 @@ function createCheckButton(todo){
     }
     return checkButton;
 }
+
+// export default createCheckButton;

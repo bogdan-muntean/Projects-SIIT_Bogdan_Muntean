@@ -1,6 +1,9 @@
 // Homework todo server
 // 1.	Sa afisam o lista de TODO items
-
+import './api'
+import './addTodo'
+import './removeTodo'
+import './updateTodo'
 
 getTodos().then(function(todos){
     const boxTodosHtml = document.getElementById("todo-box");

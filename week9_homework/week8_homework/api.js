@@ -38,3 +38,5 @@ function updateTodo(todo, check) {
     body: JSON.stringify(newObjectTodo)
     })
   }
+
+  export {getTodos, postTodo, updateTodo}
