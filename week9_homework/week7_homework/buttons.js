@@ -1,6 +1,6 @@
 
-    // import {incrementTimer, addZero} from "./increment-mecanism.js";
-    import "./increment-mecanism.js";
+    import {incrementTimer, addZero} from "./increment-mecanism.js";
+    // import "./increment-mecanism.js";
 
     // 2.	Adaugati un button plus functionalitate pentru start timer
     let startTimerInterval;
@@ -14,7 +14,6 @@
             startTimerInterval = setInterval(incrementTimer(), 1000)
             clickCounterStart++;
         } 
-        
     })
     
     // 3.	Adaugati un button plus functionalitate pentru stop timer

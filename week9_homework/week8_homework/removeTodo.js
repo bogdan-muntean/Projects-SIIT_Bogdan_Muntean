@@ -3,6 +3,8 @@
 // •	folosim DELETE http://localhost:3000/todos/:id
 
 //Cream butonul de delete si functia pentru el
+const baseURL = "http://localhost:3000";
+
 function createDeleteButton(todoId){
     const deleteButton = document.createElement("button")
     deleteButton.innerHTML = "Delete";
@@ -16,3 +18,5 @@ function createDeleteButton(todoId){
     }
     return deleteButton;
 }
+
+export default createDeleteButton

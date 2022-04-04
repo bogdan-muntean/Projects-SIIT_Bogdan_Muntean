@@ -27,4 +27,4 @@ function createCheckButton(todo){
     return checkButton;
 }
 
-// export default createCheckButton;
+export default createCheckButton;

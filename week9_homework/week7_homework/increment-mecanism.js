@@ -33,4 +33,4 @@ function addZero(value) {
     return value;
 }
 
-// export {incrementTimer,addZero};
+export {incrementTimer,addZero};

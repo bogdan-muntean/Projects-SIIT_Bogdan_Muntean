@@ -1,5 +1,5 @@
 // 2.	Sa permitem adaugarea unui TODO
-import { postTodo } from "./api";
+import { postTodo } from "./api.js";
 const toDoButton = document.getElementById('input-button');
 
 
