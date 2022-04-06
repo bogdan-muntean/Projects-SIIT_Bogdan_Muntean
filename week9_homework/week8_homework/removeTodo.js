@@ -9,10 +9,10 @@ function createDeleteButton(todoId){
     const deleteButton = document.createElement("button")
     deleteButton.innerHTML = "Delete";
 
-    deleteButton.onclick = function(){
-        fetch(`${baseURL}/todos/${todoId}`,{
+    deleteButton.onclick = async () => {
+        await fetch(`${baseURL}/todos/${todoId}`,{
             method: "DELETE",
-        }).then(function(){
+        }).then( () => {
             location.reload();
         })
     }

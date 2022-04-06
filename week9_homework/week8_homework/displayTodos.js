@@ -9,13 +9,30 @@ getTodos().then(function(todos){
     const boxTodosHtml = document.getElementById("todo-box");
     const todoListHtml = document.getElementById("todo-list");
 
+    //Cum ar trebui sa fac aici pentru a folosi .forEach() ?
+    // todos.forEach((todos, i){
+    //     console.log(todos[i])
+    //     //create <li> html
+    //     const itemHtml = createTodoHtml(todos[i].name);
+    //     //deleteBtn
+    //     const deleteBtn = createDeleteButton(todos[i].id)
+    //     itemHtml.appendChild(deleteBtn);
+    //     todoListHtml.appendChild(itemHtml);
+    //     //checkbox 
+    //     const checkBtn = createCheckButton(todos[i])
+    //     itemHtml.appendChild(checkBtn);
+    //     todoListHtml.appendChild(itemHtml);
+    // })
+
     for(let i = 0; i < todos.length; i++){
         console.log(todos[i])
+        //create <li> html
         const itemHtml = createTodoHtml(todos[i].name);
-        
+        //deleteBtn
         const deleteBtn = createDeleteButton(todos[i].id)
         itemHtml.appendChild(deleteBtn);
         todoListHtml.appendChild(itemHtml);
+        //checkbox 
         const checkBtn = createCheckButton(todos[i])
         itemHtml.appendChild(checkBtn);
         todoListHtml.appendChild(itemHtml);

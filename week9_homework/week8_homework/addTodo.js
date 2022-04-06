@@ -1,7 +1,7 @@
 // 2.	Sa permitem adaugarea unui TODO
 import { postTodo } from "./api.js";
-const toDoButton = document.getElementById('input-button');
 
+const toDoButton = document.getElementById('input-button');
 
 //Eveniment pe button, cand se face click, preluam valoarea din input
 toDoButton.onclick = () => {

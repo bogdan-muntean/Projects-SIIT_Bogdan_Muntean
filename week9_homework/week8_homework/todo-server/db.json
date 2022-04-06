@@ -2,28 +2,8 @@
   "todos": [
     {
       "name": "de udat florile",
-      "completed": false,
+      "completed": true,
       "id": "1648670732093"
-    },
-    {
-      "name": "sdsdsdsdsdds",
-      "completed": false,
-      "id": "1648987549847"
-    },
-    {
-      "name": "sdsdsdsdsdds",
-      "completed": false,
-      "id": "1648987553298"
-    },
-    {
-      "name": "sdsxcasxcd",
-      "completed": true,
-      "id": "1649096536349"
-    },
-    {
-      "name": "sdsxcasxcd",
-      "completed": true,
-      "id": "1649096576657"
     },
     {
       "name": "sdsxcasxcd",
@@ -31,9 +11,9 @@
       "id": "1649096577481"
     },
     {
-      "name": "sdsxcasxcd",
+      "name": "sdxc",
       "completed": false,
-      "id": "1649096578356"
+      "id": "1649235340297"
     }
   ]
 }
