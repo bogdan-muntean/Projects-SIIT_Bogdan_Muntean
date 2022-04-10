@@ -4,8 +4,8 @@ html, body{
     background-color: aliceblue;
 }
 #game-board{
-    width: 800px;
-    height: 900px;
+    width: 600px;
+    height: 600px;
     background-color: azure;
     border: 1px solid black;
 }
