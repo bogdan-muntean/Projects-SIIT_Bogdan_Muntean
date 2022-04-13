@@ -40,19 +40,42 @@ document.addEventListener("keydown", (keydownEvent) => {
 const listMonster = []
 
 //-cream monstrii + adaugam monstrii pe pozitii random in container + adaugam in listMonster[]
-for(let i = 0; i < 5; i++){
+for(let i = 0; i < 30; i++){
     const monster = new Monster(gameContainer);
     listMonster.push(monster);
 }
 
 //sa se miste random pe harta
-
 setInterval(() => {
     for(let i = 0; i < listMonster.length; i++){
         const monsterElement = listMonster[i];
-        moveMonster(monsterElement)
+        moveMonster(monsterElement);
     } 
-}, 500)
+    console.log(gameOver);
+}, 100);
+
+
+//6. sa verific daca player-ul a atins vreun monstru
+var gameOver = false;
+
+//6. Functia prin care daca player intalneste un monstru sa fie game over
+() => {
+    for(let i = 0; i < listMonster.length; i++){
+    const monsterElement = listMonster[i];
+
+    const positionPlayerTop = parseInt(player.style.top); 
+    const positionPlayerLeft = parseInt(player.style.left); 
+    const positionMonsterTop = parseInt(monsterElement.style.top);
+    const positionMonsterLeft = parseInt(monsterElement.style.left);
+
+        if(positionMonsterTop >= positionPlayerTop && positionMonsterTop <= (positionPlayerTop + 30) &&
+            positionMonsterLeft >= positionPlayerLeft && positionMonsterLeft <= (positionPlayerLeft + 30)){
+            console.log("GAME OVER");
+            gameOver = true;
+        }
+
+    }
+}
 
 function moveMonster(myMonster){
     const movementList = ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"];
@@ -74,21 +97,5 @@ function moveMonster(myMonster){
 }
 
 
-//sa verific daca player-ul a atins vreun monstru
-let gameOver = false;
 
-function stopGame(player) => {
-    const positionPlayerTop = parseInt(player.style.top); 
-    const positionPlayerLeft = parseInt(player.style.left); 
 
-    for(let i = 0; i < listMonster.length; i++){
-        const monster = listMonster[i];
-        const positionMonsterTop = parseInt(monster.style.top);
-        const positionMonsterLeft = parseInt(monster.style.left);
-        if(positionMonsterTop >= positionPlayerTop && 
-        positionMonsterTop <= ${positionPlayerTop} + 30){
-            gameOver = true;
-        }
-
-    }
-}
