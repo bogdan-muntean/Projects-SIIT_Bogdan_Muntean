@@ -4,9 +4,9 @@
 //     3.Un player nu poate iesi inafara gameContainer ( de la punctul 1)
 //     4.Adaugati monstrii,pusi random in container. Acesti vor fi de mai multe tipuri
 //     5.Monstru se misca random prin container ( cauta playerul )
-//TODO
 //     6.Player daca intalneste un monstru va fi game over
 // Optional +1p
+//TODO
 //     Adaugam nr de vieti
 
 import Player from './Player.js'
@@ -48,6 +48,20 @@ for (let i = 0; i < 30; i++) {
 //6. sa verific daca player-ul a atins vreun monstru
 var gameOver = false;
 
+//TODO
+//Optional Homework:   
+//Adaugam nr de vieti
+const tabelVietiHtml = document.getElementById("tabel-vieti")
+const vietiHtml = document.createElement("span")
+const numarVieti = []
+for(let i = 1; i < 4; i++){
+    vietiHtml.id = `life${i}`
+    tabelVietiHtml.appendChild(vietiHtml)
+    numarVieti.push(i)
+}
+
+let vietiValue = parseInt(vietiHtml.innerHTML)
+
 //sa se miste random pe harta
 setInterval(() => {
     for (let i = 0; i < listMonster.length; i++) {
@@ -67,8 +81,8 @@ setInterval(() => {
 
         if (positionMonsterTop >= positionPlayerTop && positionMonsterTop <= (positionPlayerTop + 30) &&
             positionMonsterLeft >= positionPlayerLeft && positionMonsterLeft <= (positionPlayerLeft + 30)) {
-            console.log("GAME OVER");
-            alert("GAME OVER")
+            console.log("Minus one life");
+            // alert("GAME OVER")
             gameOver = true;
         }
     }
@@ -95,6 +109,8 @@ function moveMonster(myMonster) {
         myMonster.moveDown();
     }
 }
+
+
 
 
 

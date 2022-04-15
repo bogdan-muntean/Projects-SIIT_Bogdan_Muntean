@@ -5,7 +5,7 @@ html, body{
     background-color:rgb(214, 206, 172);
     width: 900px;
     height: 600px;
-    position: relative;
+    position: absolute;
     left: 18%;
 }
 .player{
@@ -13,4 +13,10 @@ html, body{
     height: 30px;
     background-color: red;
     position: relative;
+}
+#tabel-vieti{
+    display: relative;
+}
+#lifes{
+    
 }
