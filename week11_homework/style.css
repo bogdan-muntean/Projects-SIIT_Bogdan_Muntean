@@ -1,10 +1,13 @@
 html, body{
     background-color: rgb(147, 168, 187);
+    width: 100%;
+    height: 100%;
 }
 #game-container{
     background-color:rgb(214, 206, 172);
     width: 900px;
     height: 600px;
+    /* display: flex; */
     position: absolute;
     left: 18%;
 }
@@ -15,8 +18,12 @@ html, body{
     position: relative;
 }
 #tabel-vieti{
-    display: relative;
+    position: absolute;
+    left: 400px;
+    border: 4px red;
+    border-style: outset;
+    padding: 3px;
 }
-#lifes{
+.lifes{
     
 }

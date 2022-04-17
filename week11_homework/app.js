@@ -19,7 +19,7 @@ const player = new Player(gameContainer);
 
 //-cream eveniment de la tastatura pentru a misca player-ul
 document.addEventListener("keydown", (keydownEvent) => {
-    console.log(keydownEvent)
+    // console.log(keydownEvent)
     if (keydownEvent.code === "ArrowRight") {
         player.moveRight();
     }
@@ -45,52 +45,67 @@ for (let i = 0; i < 30; i++) {
     listMonster.push(monster);
 }
 
-//6. sa verific daca player-ul a atins vreun monstru
-var gameOver = false;
-
 //TODO
 //Optional Homework:   
-//Adaugam nr de vieti
+//Adaugam tabelul de vieti HTML si numarul de vieti
 const tabelVietiHtml = document.getElementById("tabel-vieti")
-const vietiHtml = document.createElement("span")
-const numarVieti = []
+const arrayVieti = []
 for(let i = 1; i < 4; i++){
-    vietiHtml.id = `life${i}`
-    tabelVietiHtml.appendChild(vietiHtml)
-    numarVieti.push(i)
+    const life = `life${i}`;
+    arrayVieti.push(life)
+
+    const newLife = document.createElement("span")
+    newLife.innerHTML = life;
+    tabelVietiHtml.appendChild(newLife)
 }
 
-let vietiValue = parseInt(vietiHtml.innerHTML)
+//6 + Optional homework - Daca functie monsterTouchPlayer() adevarata 
+//sa ii scada o viata, daca nu are ce scadea, sa fie game over. La fiecare atingere
+//player-ul are imunitate 3 secunde, timp in care nu poate fi atins de monstrii.
+var gameOver = false;
+setInterval(() =>{
+    if(monsterTouchPlayer()){
+        if(gameOver === true){
+            alert("GAME OVER");
+        } else {
+            
+        }
 
-//sa se miste random pe harta
+    }
+
+},100)
+
+
+//6.Functie sa verific daca player-ul a atins vreun monstru
+function monsterTouchPlayer(){
+    for (let i = 0; i < listMonster.length; i++) {
+        const monsterElement = listMonster[i].element;
+    
+        const positionPlayerTop = parseInt(player.element.style.top);
+        const positionPlayerLeft = parseInt(player.element.style.left);
+        const positionMonsterTop = parseInt(monsterElement.style.top);
+        const positionMonsterLeft = parseInt(monsterElement.style.left);
+    
+        if (positionMonsterTop >= positionPlayerTop && positionMonsterTop <= (positionPlayerTop + 30) &&
+            positionMonsterLeft >= positionPlayerLeft && positionMonsterLeft <= (positionPlayerLeft + 30)) {
+                return true
+        } else{
+            return false
+        }
+    }
+}
+
+
+
+//5. Monstrii sa se miste random pe harta, cu o anumita viteza
 setInterval(() => {
     for (let i = 0; i < listMonster.length; i++) {
         const monsterElement = listMonster[i];
         moveMonster(monsterElement);
     }
-    console.log(gameOver);
-
-    //6. Functia prin care daca player intalneste un monstru sa fie game over
-    for (let i = 0; i < listMonster.length; i++) {
-        const monsterElement = listMonster[i].element;
-
-        const positionPlayerTop = parseInt(player.element.style.top);
-        const positionPlayerLeft = parseInt(player.element.style.left);
-        const positionMonsterTop = parseInt(monsterElement.style.top);
-        const positionMonsterLeft = parseInt(monsterElement.style.left);
-
-        if (positionMonsterTop >= positionPlayerTop && positionMonsterTop <= (positionPlayerTop + 30) &&
-            positionMonsterLeft >= positionPlayerLeft && positionMonsterLeft <= (positionPlayerLeft + 30)) {
-            console.log("Minus one life");
-            // alert("GAME OVER")
-            gameOver = true;
-        }
-    }
 }, 100);
 
-
-
-
+//5. Functie pentru monstrii sa se miste random
 function moveMonster(myMonster) {
     const movementList = ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"];
     const randomNumber = Math.floor(Math.random() * 4);
