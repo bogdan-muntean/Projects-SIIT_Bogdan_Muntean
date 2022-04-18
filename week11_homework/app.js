@@ -59,25 +59,35 @@ for(let i = 1; i < 4; i++){
     tabelVietiHtml.appendChild(newLife)
 }
 
-//6 + Optional homework - Daca functie monsterTouchPlayer() adevarata 
+//6 + Optional homework - Daca functia monsterTouchPlayer() este adevarata 
 //sa ii scada o viata, daca nu are ce scadea, sa fie game over. La fiecare atingere
 //player-ul are imunitate 3 secunde, timp in care nu poate fi atins de monstrii.
 var gameOver = false;
-setInterval(() =>{
-    if(monsterTouchPlayer()){
+var ifGameOver = setInterval(function GameOver(){
+    if(monsterTouchPlayer() === true){
         if(gameOver === true){
             alert("GAME OVER");
-        } else {
-            
+            clearInterval(ifGameOver);
+            clearInterval(randomMonsterMoves);
+        } 
+        else {
+            arrayVieti.pop()
+                if(arrayVieti.length <= 0){
+                    gameOver = true;
+                }
+                console.log("player lose 1 life")
+
+            clearInterval(ifGameOver)
+            console.log("player-ul este imun 3 secunde")
+            setTimeout(() => {
+                ifGameOver = setInterval(GameOver(), 100);
+            }, 3000);
         }
-
     }
-
 },100)
 
-
 //6.Functie sa verific daca player-ul a atins vreun monstru
-function monsterTouchPlayer(){
+function monsterTouchPlayer (){
     for (let i = 0; i < listMonster.length; i++) {
         const monsterElement = listMonster[i].element;
     
@@ -88,6 +98,7 @@ function monsterTouchPlayer(){
     
         if (positionMonsterTop >= positionPlayerTop && positionMonsterTop <= (positionPlayerTop + 30) &&
             positionMonsterLeft >= positionPlayerLeft && positionMonsterLeft <= (positionPlayerLeft + 30)) {
+                console.log("monster touch player")
                 return true
         } else{
             return false
@@ -95,13 +106,12 @@ function monsterTouchPlayer(){
     }
 }
 
-
-
 //5. Monstrii sa se miste random pe harta, cu o anumita viteza
-setInterval(() => {
+var randomMonsterMoves = setInterval(() => {
     for (let i = 0; i < listMonster.length; i++) {
         const monsterElement = listMonster[i];
         moveMonster(monsterElement);
+        monsterTouchPlayer();
     }
 }, 100);
 
