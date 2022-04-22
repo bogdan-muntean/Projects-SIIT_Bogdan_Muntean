@@ -62,47 +62,52 @@ for(let i = 1; i < 4; i++){
 //6 + Optional homework - Daca functia monsterTouchPlayer() este adevarata 
 //sa ii scada o viata, daca nu are ce scadea, sa fie game over. La fiecare atingere
 //player-ul are imunitate 3 secunde, timp in care nu poate fi atins de monstrii.
-var gameOver = false;
-var ifGameOver = setInterval(function GameOver(){
+var gameOverValue = false;
+var loseLife = setInterval(function gameOver(){
     if(monsterTouchPlayer() === true){
-        if(gameOver === true){
+        if(gameOverValue === true){
             alert("GAME OVER");
-            clearInterval(ifGameOver);
+            clearInterval(loseLife);
             clearInterval(randomMonsterMoves);
         } 
         else {
             arrayVieti.pop()
-                if(arrayVieti.length <= 0){
-                    gameOver = true;
+                if(arrayVieti.length <= 1){
+                    gameOverValue = true;
                 }
                 console.log("player lose 1 life")
 
-            clearInterval(ifGameOver)
+            clearInterval(loseLife)
             console.log("player-ul este imun 3 secunde")
             setTimeout(() => {
-                ifGameOver = setInterval(GameOver(), 100);
+                loseLife = setInterval(gameOver(), 100);
             }, 3000);
         }
     }
 },100)
 
 //6.Functie sa verific daca player-ul a atins vreun monstru
+
 function monsterTouchPlayer (){
+    let sumTouches = false;
     for (let i = 0; i < listMonster.length; i++) {
+        
         const monsterElement = listMonster[i].element;
     
         const positionPlayerTop = parseInt(player.element.style.top);
         const positionPlayerLeft = parseInt(player.element.style.left);
         const positionMonsterTop = parseInt(monsterElement.style.top);
         const positionMonsterLeft = parseInt(monsterElement.style.left);
+
     
         if (positionMonsterTop >= positionPlayerTop && positionMonsterTop <= (positionPlayerTop + 30) &&
             positionMonsterLeft >= positionPlayerLeft && positionMonsterLeft <= (positionPlayerLeft + 30)) {
-                console.log("monster touch player")
-                return true
+                console.log("monster touch player");
+                sumTouches = sumTouches || true;
         } else{
-            return false
+            sumTouches = sumTouches || false;
         }
+        return sumTouches
     }
 }
 
