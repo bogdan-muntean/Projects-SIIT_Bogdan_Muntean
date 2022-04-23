@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: beige;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    border: solid 1px black;
+    flex-direction: row;
+    display: inline-flex;
+    width: 96%;
+    justify-content: space-between;
+}
+
+.product {
+    max-width: 400px;
+    border: solid 1px red;
+    margin: 20px;
+    padding: 20px;
+    height: 300px;
+}
+.person-img{
+    width: 300px;
+}
+.buttons-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.star-img{
+    width: 18px;
+}
+.heart-img{
+    width: 18px;
+}
+.cart-view-container{
+    display: flex;
+    justify-content:space-evenly;
+}
+.cart-button{
+    border: solid 3px black;
+    margin: 5px;
+    padding: 8px 20px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+.view-button{
+    border: solid 3px black;
+    margin: 5px;
+    padding: 8px 20px;
+    font-weight: bold;
+}
