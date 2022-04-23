@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="blog_logo">My Blog</div>
+        <nav>
+            <a href="home.html"><button>Home</button></a>
+            <a href="contact.html" id="button-right"><button>Contact</button></a>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <a href="post-one.html">
+                <img style="width: 98%; height:auto;" class="imagine-articol" src="economics_photo.jpg">
+                <p>1. "Invisible Hand" teoria creata de Adam Smith</p>
+            </a>
+        </article>
+        <article>
+            <a href="post-two.html">
+                <img style="width: 98%; height:auto;" class="imagine-articol" src="economics_photo.jpg">
+                <p>2. "Invisible Hand" teoria creata de Adam Smith</p>
+            </a>
+        </article>
+            
+        <!-- Buton care trimite catre top -->
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+                <script>
+                    //Get the button
+                    var mybutton = document.getElementById("myBtn");
+
+                    // When the user scrolls down from the top of the document, show the button
+                    window.onscroll = function () { scrollFunction() };
+
+                    function scrollFunction() {
+                        if (document.body.scrollTop > 2 || document.documentElement.scrollTop > 2) {
+                            mybutton.style.display = "block";
+                        } else {
+                            mybutton.style.display = "none";
+                        }
+                    }
+                    // When the user clicks on the button, scroll to the top of the document
+                    function topFunction() {
+                        document.body.scrollTop = 0;
+                        document.documentElement.scrollTop = 0;
+                    }
+                </script>
+    </main>
+    <div>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, quae deleniti reiciendis, corporis nihil autem
+                repudiandae esse veritatis suscipit error, aspernatur eveniet eius ducimus nulla. Nostrum perferendis numquam rem rerum
+                exercitationem ut culpa, porro modi? Hic, adipisci voluptatibus minima nobis ut iusto rem saepe maxime porro quam sint
+                eveniet ipsam dolorem reprehenderit quasi, ad, magnam aut eum pariatur culpa asperiores nesciunt molestias eius!
+                Molestiae, architecto tempore. Eligendi quia itaque accusamus nostrum ut, dicta dolorum laborum aspernatur cupiditate,
+                ducimus cum nihil sit molestiae soluta consequuntur voluptates cumque dignissimos expedita. Neque, optio. Asperiores
+                error numquam ipsam, ducimus molestiae quos? Quam, blanditiis necessitatibus.
+
+    </div>
+    <footer>
+        <p>Blog realizat de Bogdan Muntean.</p>
+    </footer>
+</body>
+</html>
+
+<!-- Specificati
+
+Figma design: https://www.figma.com/file/FO2RgNsZtGg3MkwCU9SO2l/Blog?node-id=0%3A1
+
+Se doreste creerea unui website cu o tematica specifica. Tematica poate fi alesa de catre voi, cateva sugestii: retete culinare, educatie financiara, poezie, cancan, news, video games, filme.
+
+Se continua tema precedenta, cerinte:
+
+    folosirea de elemente html5
+    folosim flex box pentru layout ( refolosim clasele de css )
+    Facem responsive - in link-ul de figma sunt doua imagini cum ar trebui sa arate pe mobile
+    facem un button de "go top" ( pozitional tot timpul jos )- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
+
+Va puteti ajuta intre voi, folosind skype/zoom -->
