@@ -15,6 +15,15 @@
 //     Nemo's, or anything that says Nemo with something behind it, doesn't count as Finding Nemo.
 //     If there are multiple Nemo's in the sentence, only return the first one.
 
+//REZOLVARE
+// function findNemo(sentence) {
+// 	var splitArray = sentence.split(' ');
+// 	var result = splitArray.findIndex(element => element === 'Nemo') + 1;
+// 	if(result === 0){
+// 		return "I can't find Nemo :(";
+// 	} 
+// 	return `I found Nemo at ${result}!`;
+// }
 
 // 2
 // https://edabit.com/challenge/pPNAs5PvB3WvnDwDM
@@ -26,3 +35,12 @@
 // toArray({}) ➞ []
 // Notes
 // Return an empty array if the object is empty.
+
+//REZOLVARE 
+// function toArray(obj) {
+// 	let array = [];
+// 	array = Object.entries(obj).map(([key, value]) => {
+// 		return [key, value];
+// 	})
+// 	return array;
+// }
