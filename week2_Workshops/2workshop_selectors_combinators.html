@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinators Selectors</title>
+</head>
+<body>
+    <style>
+        *{
+            font-family:'Courier New', Courier, monospace;
+        }
+        div p {
+            padding: 10px;
+        }
+        div > a {
+            color: green;
+        }
+        div > p > a {
+            color: blue;
+        }
+        div ~ p{
+        color: pink;
+        }
+        div + p{
+            color: red;
+        }
+    </style>
+        
+    <div id=“container”>
+        <p class=“red”>This is some text</p>
+        <p>This is <span>more</span> text</p>
+        <p>Link to <a href=“http://www.scoalainformala.com”> Scoala Informala</a></p>
+    <a href=“http://www.google.com”>Google</a>
+    </div>
+    <p>This is <span>some other</span> text</p>...
+    <p>This is <span>some other</span> text</p>...
+    <p>This is <span>some other</span> text</p>...
+
+</body>
+</html>
+
+<!-- 
+a. Style in blue the link to Scoala Informala, and in green the link to
+Google
+b. Style in pink the “some other” span -->

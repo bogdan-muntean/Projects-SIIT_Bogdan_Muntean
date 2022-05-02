@@ -1,0 +1,38 @@
+html {
+  background-color: bisque;
+}
+aside {
+  display: block;
+  float: left;
+  border-right-style: solid;
+  padding: 10px;
+  padding-bottom: 200px;
+  position: ;
+}
+ul,
+li {
+  display: block;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  vertical-align: baseline;
+}
+article {
+  position: ;
+}
+img {
+  weight: 250px;
+  height: 250px;
+  border-radius: 125px;
+  display: block;
+  margin: 10px auto 20px;
+}
+.info {
+  flex: auto;
+  padding: 10px 10px 10px 10%;
+  display: block;
+  margin-left: 10px;
+}
+ul {
+  padding-left: 0px;
+}
