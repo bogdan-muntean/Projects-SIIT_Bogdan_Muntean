@@ -1,0 +1,30 @@
+html, body{
+    background-color: rgb(147, 168, 187);
+    width: 100%;
+}
+#game-container{
+    background-color:white;
+    width: 900px;
+    height: 600px;
+    /* display: flex; */
+    position: absolute;
+    left: 18%;
+}
+.player{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: relative;
+}
+#tabel-vieti{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 400px;
+    border: 4px red;
+    border-style: outset;
+    padding: 3px;
+}
+/* .lifes{
+    
+} */
