@@ -12,33 +12,9 @@
 // Or you can implement the two functionalities in one app, but using two values: one stored in cookie,
 // one stored in storage.
 
-let container1 = document.getElementById('container1')
-let container2 = document.getElementById('container2')
-
-let selectEn = false;
-// let selectRo;
 
 const arrayQ1En = ["Very Satisfied", "Satisfied", "Neutral", "Unsatisfied", "Very Unsatisfied"]
 const arrayQ1Ro = ["Foarte Mulțumit", "Satisfăcut", "Neutru", "Nemulțumit", "Foarte Nemulțumit"]
-
-createRadioButtons(arrayQ1Ro, container1);
-createLanguageButtons(container2)
-function setCookie(arg){
-    arg ? document.cookie = "value=true; SameSite=None; Secure" : document.cookie = "value=false; SameSite=None; Secure";
-}
-
-function checkValues(arg,paragraph){
-    if(arg){
-        createRadioButtons(arrayQ1En, container1)
-        paragraph.innerHTML = "What language do you speak? "
-        selectEn = false;
-    } else{
-        createRadioButtons(arrayQ1Ro, container1)
-        paragraph.innerHTML = "Ce limbă vorbiți? "
-        selectEn = false;
-    }
-    setCookie(arg)
-}
 
 //container 1
 function createRadioButtons(array, container){
