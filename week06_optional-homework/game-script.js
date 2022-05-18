@@ -1,3 +1,9 @@
+// Optional
+//     1.Player daca intalneste un obstacol, nu poate trece de el +1
+//     2.Adaugam numar de vieti la player ( +1 activitate )
+//     3.Sa adaugam obstacole care scad din viata +1
+
+
 if (typeof window !== 'undefined') {
     console.log('You are on the browser')
   } else {
@@ -7,38 +13,54 @@ if (typeof window !== 'undefined') {
 //HOMEWORK
 const player = document.getElementById("player")
 const gameContainer = document.getElementsByClassName("game-container")
+
+//A.Obstacolele de sine statatoare
 const obstaclesClass = document.getElementsByClassName("obstacol")
-
 const obstaclesList = [];
+// randomizam pozitia obstacolelor + 2. le adaugam pozitiile in obiecte, 
+//intr-un array
+createObjectsForArray(obstaclesList, obstaclesClass)
 
+//B. Obstacolele care scad vieti
+const enemiesClass = document.getElementsByClassName("enemy")
+const enemiesList = [];
 // randomizam pozitia obstacolelor + 2. le adaugam pozitiile in obiecte, intr-un array
-for(let i = 0; i < obstaclesClass.length; i++){
-    let obstacle;
-    do{
-    obstacle = {
-        top: Math.random() * 380,
-        left: Math.random() * 380
+createObjectsForArray(enemiesList, enemiesClass)
+
+function createObjectsForArray(array, elementClass){
+    //pentru a nu se suprapune cu player cand se incepe programul
+    //Va fi intre 380 si 50
+    for(let i = 0; i < elementClass.length; i++){
+        let enemy = {
+            top: Math.floor(Math.random() * (380 - 50) + 50),
+            left: Math.floor(Math.random() * (380 - 50) + 50)
+        }
+    
+        elementClass[i].style.top = `${enemy.top}px`
+        elementClass[i].style.left = `${enemy.left}px`
+        array.push(enemy)
     }
-    } while(obstacle.top > 50 && obstaclesClass.left > 50)  //pentru a nu se suprapune cu player cand se incepe programul
-
-
-    obstaclesClass[i].style.top = `${obstacle.top}px`
-    obstaclesClass[i].style.left = `${obstacle.left}px`
-        
-    obstaclesList.push(obstacle)
 }
 
+function checkIfTouchObstacle(array, player){
 
-// Optional Homework	3.Player daca intalneste un obstacol, nu poate trece de el. Ne folosim de array-ul cu obiecte.
+}
+
+function checkIfTouchEnemy(array, player){
+
+}
+
+// Optional Homework	3.Player daca intalneste un obstacol, nu poate trece de el. 
+//Ne folosim de array-ul cu obiecte.
+
+
 // function restrictedArea(obstaclesList){
 //     for(let i = 0; i < obstaclesList.length; i++){
-
-
-//         if(player.style.top === stopArea || player.style.left === stopArea)
+//         if(player.style.top === stopArea || player.style.left === stopArea){
 //             return true;
-//         else
-//             return false;
+//         }
 //     }
+//             return false;
 // }
 
 // function coordinateBoxes(box, player){
@@ -61,7 +83,7 @@ for(let i = 0; i < obstaclesClass.length; i++){
 //     }
 // }
 
-
+//Player movement
 document.addEventListener("keydown",function(event){
     console.log("S-a apasat tasta", event)
     if(event.key == "ArrowUp"){
