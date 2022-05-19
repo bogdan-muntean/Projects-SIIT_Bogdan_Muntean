@@ -1,36 +1,42 @@
 body{
-    background-color: bisque;
+    background-color: white;
 }
-.game-container{
+#game-container{
     width: 400px;
     height: 400px;
     background-color: rgb(219, 221, 99);
     /* border: 1.5px solid black; */
+    position: absolute;
+    /* display: flex; */
+
 }
 #player{
+    height: 40px;
+    width: 40px;
+    background-color: green;
+    position: absolute;
+}
+
+.obstacol{
+    height: 40px;
+    width: 40px;
+    background-color: blue;
+    position: absolute;
+}
+
+.enemy{
     height: 40px;
     width: 40px;
     background-color: red;
     position: absolute;
 }
 
-.obstacol{
-    height: 20px;
-    width: 20px;
-    background-color: blue;
+#tabel-vieti{
     position: absolute;
-}
-
-.enemy{
-    height: 20px;
-    width: 20px;
-    background-color: red;
-    position: absolute;
-}
-
-.vieti {
-    width: 150px;
-    height: 40px;
-    top: 40px;
-    position: relative;
-}
+    display: flex;
+    align-items: center;
+    left: 20%;
+    border: 4px red;
+    border-style: outset;
+    padding: 3px;
+  }

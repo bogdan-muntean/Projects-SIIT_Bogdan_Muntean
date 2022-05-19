@@ -12,46 +12,134 @@ if (typeof window !== 'undefined') {
 
 //HOMEWORK
 const player = document.getElementById("player")
-const gameContainer = document.getElementsByClassName("game-container")
+const gameContainer = document.getElementById("game-container")
 
 //A.Obstacolele de sine statatoare
 const obstaclesClass = document.getElementsByClassName("obstacol")
 const obstaclesList = [];
 // randomizam pozitia obstacolelor + 2. le adaugam pozitiile in obiecte, 
 //intr-un array
-createObjectsForArray(obstaclesList, obstaclesClass)
+createObjects(obstaclesList, 'blue')
 
 //B. Obstacolele care scad vieti
 const enemiesClass = document.getElementsByClassName("enemy")
 const enemiesList = [];
 // randomizam pozitia obstacolelor + 2. le adaugam pozitiile in obiecte, intr-un array
-createObjectsForArray(enemiesList, enemiesClass)
+createObjects(enemiesList, 'red')
 
-function createObjectsForArray(array, elementClass){
+function createObjects(array, color){
     //pentru a nu se suprapune cu player cand se incepe programul
     //Va fi intre 380 si 50
-    for(let i = 0; i < elementClass.length; i++){
-        let enemy = {
-            top: Math.floor(Math.random() * (380 - 50) + 50),
-            left: Math.floor(Math.random() * (380 - 50) + 50)
+    for(let i = 0; i < 3; i++){
+        let elementHtml = document.createElement('div')
+        elementHtml.style.height = '40px'
+        elementHtml.style.width = '40px'
+        elementHtml.style.position = 'absolute'
+        elementHtml.style.background = `${color}`
+
+        let positionTop = Math.floor(Math.random() * (360 - 50) + 50);
+        let positionLeft = Math.floor(Math.random() * (360 - 50) + 50);
+        
+        elementHtml.style.top = `${positionTop}px`
+        elementHtml.style.left = `${positionLeft}px`
+
+        let elementValues = {
+            positionTop,
+            positionLeft
         }
-    
-        elementClass[i].style.top = `${enemy.top}px`
-        elementClass[i].style.left = `${enemy.left}px`
-        array.push(enemy)
+        array.push(elementValues)
+        gameContainer.appendChild(elementHtml);
     }
 }
 
-function checkIfTouchObstacle(array, player){
-
-}
-
-function checkIfTouchEnemy(array, player){
-
-}
-
-// Optional Homework	3.Player daca intalneste un obstacol, nu poate trece de el. 
+//     TODO 1.Optional: Player daca intalneste un obstacol, nu poate trece de el +1
+// Player daca intalneste un obstacol, nu poate trece de el. 
 //Ne folosim de array-ul cu obiecte.
+function checkIfTouchObstacle(player){
+    const playerTop = parseInt(player.style.top);
+    const playerLeft = parseInt(player.style.left);
+    obstaclesList.forEach((element) => {
+        const elementTop = element.positionTop
+        const elementLeft = element.positionLeft
+
+        
+        if (elementTop >= (playerTop + 50) && elementTop <= (playerTop + 50) && 
+        elementLeft >= (playerLeft + 50) && elementLeft <= (playerLeft + 50)) {
+            console.log("player touch obstacle");
+            return true;
+        }
+    })
+    return false;
+}
+
+//     TODO 3.Optional: Sa adaugam obstacole care scad din viata +1
+function checkIfTouchEnemy(array, player, Lifes){
+    array //enemyList
+}
+
+
+
+//     TODO 2.Optional: Adaugam numar de vieti la player ( +1 activitate )
+const tabelVietiHtml = document.getElementById("tabel-vieti")
+const arrayVieti = []
+function displayLifes(numberLifes) {
+    for(let i = 1; i < numberLifes+1; i++){
+        const life = `life${i}`;
+        arrayVieti.push(life)
+        // ^^ valoarea, iar         vv imaginea
+        const newLife = document.createElement("img")
+        newLife.src = "heart.PNG";
+        tabelVietiHtml.appendChild(newLife)
+    }
+}
+let lifes = 3;   //cu atatea vieti incepem
+displayLifes(lifes);
+
+
+//Player movement
+document.addEventListener("keydown",function(event){
+    if(checkIfTouchObstacle(player) === false){
+        if(event.key == "ArrowUp"){
+            let oldTop = parseInt(player.style.top);
+            if(oldTop > 10){
+                oldTop -= 10
+                player.style.top = `${oldTop}px`
+            } else {
+                console.log("Player-ul iese din arie.")
+            }
+        }
+        
+        if(event.key == "ArrowRight"){
+            let oldLeft = parseInt(player.style.left);
+            if(oldLeft < 370 ){
+                oldLeft += 10
+                player.style.left = `${oldLeft}px`
+            } else {
+                console.log("Player-ul iese din arie.")
+            }
+        }
+        
+        if(event.key == "ArrowDown"){
+            let oldTop = parseInt(player.style.top);
+            if(oldTop < 370 ){
+                oldTop += 10
+                player.style.top = `${oldTop}px`
+            } else {
+                console.log("Player-ul iese din arie.")
+            }
+        }
+        
+        if(event.key == "ArrowLeft"){
+            let oldLeft = parseInt(player.style.left);
+            if(oldLeft > 10){
+                oldLeft -= 10
+                player.style.left = `${oldLeft}px`
+            } else {
+                console.log("Player-ul iese din arie.")
+            }
+        }
+    }
+});
 
 
 // function restrictedArea(obstaclesList){
@@ -82,54 +170,3 @@ function checkIfTouchEnemy(array, player){
 //        return 0;
 //     }
 // }
-
-//Player movement
-document.addEventListener("keydown",function(event){
-    console.log("S-a apasat tasta", event)
-    if(event.key == "ArrowUp"){
-        let oldTop = parseInt(player.style.top);
-        console.log(oldTop)
-        if(oldTop > 10){
-            oldTop -= 10
-            player.style.top = `${oldTop}px`
-        } else {
-            console.log("Player-ul iese din arie.")
-        }
-    }
-
-    if(event.key == "ArrowRight"){
-        let oldLeft = parseInt(player.style.left);
-        console.log(oldLeft)
-        if(oldLeft < 370 ){
-            oldLeft += 10
-            player.style.left = `${oldLeft}px`
-        } else {
-            console.log("Player-ul iese din arie.")
-        }
-    }
-
-    if(event.key == "ArrowDown"){
-
-        let oldTop = parseInt(player.style.top);
-        console.log(oldTop)
-        if(oldTop < 370 ){
-            oldTop += 10
-            player.style.top = `${oldTop}px`
-        } else {
-            console.log("Player-ul iese din arie.")
-        }
-    }
-
-    if(event.key == "ArrowLeft"){
-        let oldLeft = parseInt(player.style.left);
-        console.log(oldLeft)
-        if(oldLeft > 10){
-            oldLeft -= 10
-            player.style.left = `${oldLeft}px`
-        } else {
-            console.log("Player-ul iese din arie.")
-        }
-    }
-
-});
-
