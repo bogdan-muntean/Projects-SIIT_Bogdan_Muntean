@@ -25,10 +25,8 @@ function playGame(event){
     //setam selectia player-ului
     let playerSelection = event.target.innerText;
     //setam selectia PC-ului cu un nr randomizat
-    //selects a number between 0 and 1 (1 not-inclusive)
     let computerSelection = Math.random();
-
-    //if computerSelection is less than .34, computer selects Rock
+    //daca PC-ul selecteaza mai putin de 34, se selecteaza de fapt rock
     if (computerSelection < .34){
         computerSelection = 'Rock';
     } else if (computerSelection <= .67){
@@ -36,14 +34,13 @@ function playGame(event){
     } else {
         computerSelection = 'Scissors';
     }
-    
-    //setup a function to compare winners and return result
+
+    //setam functia care verifica castigatorul si returnam rezultatul
     let result = checkWinner(playerSelection, computerSelection);
 
-    //output scores to the DOM
+    //afisam scorul in tabel
     if (result === 'Player'){
         result += ' wins!';
-        //update score
         winnerScores[0]++;
     }
 
@@ -56,10 +53,8 @@ function playGame(event){
         result += '. It\'s a tie!'
     }
 
-    //output score into Score DIV
     score.innerHTML = 'Player: [ ' + winnerScores[0]+ ' ] Computer: [ ' + winnerScores[1] + ' ]';
 
-    //output player and computer's selections
     messenger('Player: <strong>' + playerSelection + '</strong> Computer: <strong>' + computerSelection + '</strong><br>' + result);
 }
 

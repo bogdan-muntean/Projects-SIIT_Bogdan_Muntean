@@ -4,4 +4,17 @@ body{
     justify-content: center;
     align-items: center;
     align-content: center;
+    background-color: antiquewhite;
+}
+
+.message{
+    margin: 8px;
+    padding: 8px;
+}
+button{
+    margin-left: 8px;
+}
+
+#buttonsContainer{
+    display: flex;
 }
