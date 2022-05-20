@@ -55,16 +55,13 @@ function createObjects(array, color){
 //     TODO 1.Optional: Player daca intalneste un obstacol, nu poate trece de el +1
 // Player daca intalneste un obstacol, nu poate trece de el. 
 //Ne folosim de array-ul cu obiecte.
-function checkIfTouchObstacle(player){
-    const playerTop = parseInt(player.style.top);
-    const playerLeft = parseInt(player.style.left);
+function checkIfTouchObstacle(playerTop, playerLeft){
     obstaclesList.forEach((element) => {
         const elementTop = element.positionTop
         const elementLeft = element.positionLeft
-
         
-        if (elementTop >= (playerTop + 50) && elementTop <= (playerTop + 50) && 
-        elementLeft >= (playerLeft + 50) && elementLeft <= (playerLeft + 50)) {
+        if (playerTop >= elementTop - 40 && playerTop <= elementTop + 40 && 
+        playerLeft >= elementLeft - 40 && playerLeft <= elementLeft + 40) {
             console.log("player touch obstacle");
             return true;
         }
@@ -98,45 +95,47 @@ displayLifes(lifes);
 
 //Player movement
 document.addEventListener("keydown",function(event){
-    if(checkIfTouchObstacle(player) === false){
-        if(event.key == "ArrowUp"){
-            let oldTop = parseInt(player.style.top);
-            if(oldTop > 10){
-                oldTop -= 10
-                player.style.top = `${oldTop}px`
-            } else {
-                console.log("Player-ul iese din arie.")
-            }
+    let oldTop = parseInt(player.style.top);
+    let oldLeft = parseInt(player.style.left);
+    checkObstacleBoolean = checkIfTouchObstacle(oldTop, oldLeft)
+
+    if(event.key == "ArrowUp"){
+        if(oldTop > 10 && checkObstacleBoolean === false){
+            newTop = oldTop - 10
+            player.style.top = `${newTop}px`
+        } else {
+            console.log("Player-ul iese din arie.")
+            return;
         }
-        
-        if(event.key == "ArrowRight"){
-            let oldLeft = parseInt(player.style.left);
-            if(oldLeft < 370 ){
-                oldLeft += 10
-                player.style.left = `${oldLeft}px`
-            } else {
-                console.log("Player-ul iese din arie.")
-            }
+    }
+    
+    if(event.key == "ArrowRight"){
+        if(oldLeft < 360 && checkObstacleBoolean === false){
+            newLeft = oldLeft + 10
+            player.style.left = `${newLeft}px`
+        } else {
+            console.log("Player-ul iese din arie.")
+            return;
         }
-        
-        if(event.key == "ArrowDown"){
-            let oldTop = parseInt(player.style.top);
-            if(oldTop < 370 ){
-                oldTop += 10
-                player.style.top = `${oldTop}px`
-            } else {
-                console.log("Player-ul iese din arie.")
-            }
+    }
+    
+    if(event.key == "ArrowDown"){
+        if(oldTop < 360 && checkObstacleBoolean === false){
+            newTop = oldTop + 10
+            player.style.top = `${newTop}px`
+        } else {
+            console.log("Player-ul iese din arie.")
+            return;
         }
-        
-        if(event.key == "ArrowLeft"){
-            let oldLeft = parseInt(player.style.left);
-            if(oldLeft > 10){
-                oldLeft -= 10
-                player.style.left = `${oldLeft}px`
-            } else {
-                console.log("Player-ul iese din arie.")
-            }
+    }
+    
+    if(event.key == "ArrowLeft"){
+        if(oldLeft > 10 && checkObstacleBoolean === false){
+            newLeft = oldLeft - 10
+            player.style.left = `${newLeft}px`
+        } else {
+            console.log("Player-ul iese din arie.")
+            return;
         }
     }
 });

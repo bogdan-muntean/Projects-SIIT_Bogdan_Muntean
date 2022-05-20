@@ -35,7 +35,7 @@ body{
     position: absolute;
     display: flex;
     align-items: center;
-    left: 20%;
+    left: 140px;
     border: 4px red;
     border-style: outset;
     padding: 3px;
