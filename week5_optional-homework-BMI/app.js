@@ -1,68 +1,31 @@
-// const users = {
-//      john : 24 , 
-//      johnBmi : " " , 
-//      mary : 30 , 
-//      maryBmi : " "
-// }
+// Homework optional BMI +2p activitate
 
-let john = 24;
-let johnBmi;
+//     Utilizatorul poate introduce greutate si inaltinea de la tastatura
+//     Rezultatul va fi afisat pe ecran si calculul in real-time, adica odata ce utilizatorul modifica oricare dintre input-uri
+//     Button de reset
 
-let mary = 30;
-let maryBmi;
 
-function checkBmi(bmiValue){
-    console.log("in function")
+const form = document.querySelector('form');
 
-    if(bmiValue < 18.5){
-        return 'Underweight';
-    } 
-    else if(bmiValue < 25){
-        return 'Normal';
+form.addEventListener('change', function(e){
+    e.preventDefault();
+    
+    const height = parseInt(document.querySelector('#height').value);
+    const weight = parseInt(document.querySelector('#weight').value);
+    const results = document.querySelector('#results');
+    
+    if((height === '') || (height < 0) || (isNaN(height))){
+        //NaN !== NaN
+        results.innerHTML = "Please provide a valid height";
+        
+    } else if (weight === '' || weight < 0 || isNaN(weight)){
+        results.innerHTML = "Please provide a valid weight";
+    } else {
+    //calculate BMI
+    const bmi = (weight / ((height*height)/10000)).toFixed(2);
+    //display the results
+    results.innerHTML = `<span>${bmi}</span>`
     }
-    else if(bmiValue < 30){
-        return 'Overweight';
-    }    
-    else {
-        return 'Obese';
-    }
-}
-johnBmi = checkBmi(john);
-maryBmi = checkBmi(mary);
-
-console.log(`John is ${johnBmi}`);
-console.log(`Mary is ${maryBmi}`);
-
-
-//ES6
-const createDiv = document.createElement('div')
-createDiv.innerText = `
-BMI optional homework. 
-John Doe | M | BMI: 24 | Normal Weight
-Mary Anne | F | BMI: 30 | Obese
-
-John Doe is ${johnBmi}
-Mary Anne is ${maryBmi}`;
-document.body.appendChild(createDiv)
-
-//De ce nu functioneaza functia de mai jos?
-// function checkBmi(bmiValue){
-//     console.log("in function")
-
-//     if(bmiValue < 18.5){
-//         conclusion = 'Underweight';
-//         console.log('underweight');
-//     } 
-//     else if(bmiValue < 25){
-//         conclusion = 'Normal';
-//         console.log('normal');
-//     }
-//     else if(bmiValue < 30){
-//         conclusion = 'Overweight';
-//         console.log('overweight');
-//     }    
-//     else {
-//         conclusion = 'Obese';
-//         console.log('obese');
-//     }
-// }
+    
+    
+});
