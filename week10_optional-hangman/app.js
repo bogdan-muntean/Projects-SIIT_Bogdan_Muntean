@@ -16,3 +16,35 @@
 //     O metoda unde obtinem ce a introdus utilizatorul
 
 //     Incercati sa spargi codul in cat mai multe functii/metode
+
+
+let game1
+const puzzleHtml = document.querySelector('#puzzle');
+const remainingHtml = document.querySelector('#guesses');
+
+window.addEventListener('keypress', (e) => {
+    console.log(e)
+    const guess = String.fromCharCode(e.charCode);
+    game1.makeGuess(guess);
+    render()
+})
+
+const render = () => {
+    puzzleHtml.innerHTML = ''
+    remainingHtml.textContent = game1.statusMessage;
+
+    game1.puzzle.split('').forEach((letter) => {
+        const letterEl = document.createElement('span')
+        letterEl.textContent = letter
+        puzzleHtml.appendChild(letterEl)
+    })
+}
+
+const startGame = async () => {
+    const puzzle = 'javascript'
+    game1 = new Hangman(puzzle, 5)
+    render()
+}
+
+document.querySelector('#reset').addEventListener('click', startGame)
+startGame()
