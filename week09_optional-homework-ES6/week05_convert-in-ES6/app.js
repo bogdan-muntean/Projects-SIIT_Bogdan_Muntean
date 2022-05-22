@@ -53,8 +53,8 @@ for(let commentValue of commentList){
 document.body.appendChild(ulHTML)
 
 //2. Permitem adaugarea unui comentariu
-var inputComment = document.getElementById("inputId");
-var addButton = document.getElementById("addButton");
+const inputComment = document.getElementById("inputId");
+const addButton = document.getElementById("addButton");
 
 addButton.onclick = () => {
     console.log(inputComment.value)
