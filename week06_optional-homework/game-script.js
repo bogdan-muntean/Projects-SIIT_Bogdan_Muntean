@@ -57,8 +57,8 @@ function createObjects(array, color){
 //Ne folosim de array-ul cu obiecte.
 function checkIfTouchObstacle(playerTop, playerLeft){
     obstaclesList.forEach((element) => {
-        const elementTop = element.positionTop
-        const elementLeft = element.positionLeft
+        let elementTop = element.positionTop
+        let elementLeft = element.positionLeft
         
         if (playerTop >= elementTop - 40 && playerTop <= elementTop + 40 && 
         playerLeft >= elementLeft - 40 && playerLeft <= elementLeft + 40) {
@@ -139,7 +139,9 @@ document.addEventListener("keydown",function(event){
         }
     }
 });
-
+//Tips: sa verific cu un watch in console
+//Sa folosesc setInterval pe functia care verfica obstacolul
+//Sa verific parametrii primiti in functie.
 
 // function restrictedArea(obstaclesList){
 //     for(let i = 0; i < obstaclesList.length; i++){
