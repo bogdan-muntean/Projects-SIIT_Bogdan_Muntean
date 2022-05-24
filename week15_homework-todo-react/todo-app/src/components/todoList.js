@@ -13,6 +13,5 @@ function TodoList(){
         </ul>
     )
 } 
-//https://www.boorje.com/react-todo-app/ separating components
 
 export default TodoList
