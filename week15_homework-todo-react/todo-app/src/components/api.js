@@ -1,3 +1,0 @@
-//fetch TODO GET
-//POST
-//DELETE
