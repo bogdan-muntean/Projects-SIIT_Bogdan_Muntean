@@ -12,6 +12,10 @@ const TodoList = props =>(
         </ul>
 );
 
+// todos.map((todo) => {
+//      <li onClick={() => deleteTodo(todo)}>{todo}</li>
+// })
+
 
 // const TodoList = props => {
 //     return(

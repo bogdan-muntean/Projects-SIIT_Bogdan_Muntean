@@ -15,41 +15,90 @@
 // Un exemplu de implementare, https://todolistme.net/
 
 import React from 'react';
+import useEffect from 'react';
+
 import "./App.css";
 import TodoList from './components/todoList';
 import TodoForm from './components/TodoForm';
-// import * from './components/apiFunctions'
+import {getTodos, postTodo} from './components/apiFunctions'
 
-class App extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      todos: ["De terminat tema", "De spalat vasele", "De curatat in camera"],
-    };
+function App(props){
+  const [todos, setTodos] = React.useState()
+
+  useEffect(() => {
+    getApiData();
+  }, []) //neoferind dependecy, ne asiguram ca se executa getApiData, o singura data
+  //pentru fiecare page load
+
+  const getApiData = async () => {
+    const response = await getTodos();
+   setTodos(response)
   }
 
-  addTodo = todo => {
-    this.setState(prevState => ({
-      todos: [...prevState.todos, todo],
-    }))
+  const deleteTodo = value => {
+    const todosAfterDelete = (value) => {
+      todos.filter(todo => todo !== value)
+    }
+    setTodos(todosAfterDelete)
+  }
+  
+  const addTodo = todo => {
+    postTodo(todo)
   }
 
-  deleteTodo = value => {
-    this.setState(prevState => ({
-      todos: prevState.todos.filter(todo => todo !== value),
-    }))
-  }
-
-  render(){
-    return(
+  return(
     <div className="App">
       <h1>Todo list</h1>
-      <TodoList todos={this.state.todos} deleteTodo={this.deleteTodo}/>
-      <TodoForm addTodo={this.addTodo}/>
+      <TodoList todos={todos} deleteTodo={deleteTodo}/>
+      <TodoForm addTodo={addTodo}/>
     </div>
-    );
-  }
-}
+  )
+} 
+
+
+
+
+// class App extends React.Component{
+//   constructor(props){
+//     super(props);
+//     this.state = {
+//       todos: [response],
+//       // todos: ["De terminat tema", "De spalat vasele", "De curatat in camera"],
+//     };
+//   };
+//   response = fetch(
+//     "https://jsonplaceholder.typicode.com/todos/"
+//   ).then((response) => response.json());
+
+// getApiData = async () => {
+//   const response = await getTodos();
+//   this.setState({
+//     todos: [response]
+//   })
+// }
+
+//   addTodo = todo => {
+//     this.setState(prevState => ({
+//       todos: [...prevState.todos, todo],
+//     }))
+//   }
+
+//   deleteTodo = value => {
+//     this.setState(prevState => ({
+//       todos: prevState.todos.filter(todo => todo !== value),
+//     }))
+//   }
+
+//   render(){
+//     return(
+//     <div className="App">
+//       <h1>Todo list</h1>
+//       <TodoList todos={this.state.todos} deleteTodo={this.deleteTodo}/>
+//       <TodoForm addTodo={this.addTodo}/>
+//     </div>
+//     );
+//   }
+// }
 
 
 export default App;
