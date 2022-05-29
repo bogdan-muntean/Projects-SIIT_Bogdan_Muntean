@@ -15,7 +15,7 @@
 // Un exemplu de implementare, https://todolistme.net/
 
 import React from 'react';
-import useEffect from 'react';
+import {useEffect} from 'react'
 
 import "./App.css";
 import TodoList from './components/todoList';
@@ -23,17 +23,18 @@ import TodoForm from './components/TodoForm';
 import {getTodos, postTodo} from './components/apiFunctions'
 
 function App(props){
-  const [todos, setTodos] = React.useState()
+  const [todos, setTodos] = React.useState()  //hook pentru a actualiza todoList-ul
+
+  const getApiData = async () => {            //aducem todoList-ul
+    const fetchedTodos = await getTodos();
+    setTodos(fetchedTodos)
+  }
 
   useEffect(() => {
     getApiData();
   }, []) //neoferind dependecy, ne asiguram ca se executa getApiData, o singura data
   //pentru fiecare page load
 
-  const getApiData = async () => {
-    const response = await getTodos();
-   setTodos(response)
-  }
 
   const deleteTodo = value => {
     const todosAfterDelete = (value) => {
@@ -49,7 +50,7 @@ function App(props){
   return(
     <div className="App">
       <h1>Todo list</h1>
-      <TodoList todos={todos} deleteTodo={deleteTodo}/>
+      <TodoList list={todos} deleteTodo={deleteTodo}/>
       <TodoForm addTodo={addTodo}/>
     </div>
   )

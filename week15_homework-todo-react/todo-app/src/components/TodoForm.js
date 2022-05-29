@@ -10,8 +10,9 @@ function TodoForm(props){
     }
 
     const handleSubmit = event => {
+        event.preventDefault();
         props.addTodo(todoInput);
-        // alert(`A todo was added: ${this.state.todoInput}`);
+        // alert(`A todo was added: ${todoInput}`);
     }
 
     useEffect(() => {
