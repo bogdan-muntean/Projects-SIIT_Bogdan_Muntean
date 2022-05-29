@@ -4,15 +4,14 @@ import React from "react";
 const Todo = props => {
         return(
         <li onClick={() => props.deleteTodo(props.todo)}>{props.todo}</li>
-        // <button onClick={props.onClickProduct}>Check</button>
+        // <button onClick={props.checkTodo}>Check</button>
         )
 }
-
 
 function TodoList(props) {
         return (
                 <ul>
-                {props.list.map(todo => (
+                {props.todos.map(todo => (
                         <Todo todo={todo} key={todo} deleteTodo={props.deleteTodo}/>
                 ))}
           </ul>

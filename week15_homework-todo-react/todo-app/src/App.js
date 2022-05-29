@@ -16,7 +16,6 @@
 
 import React from 'react';
 import {useEffect} from 'react'
-
 import "./App.css";
 import TodoList from './components/todoList';
 import TodoForm from './components/TodoForm';
@@ -35,7 +34,6 @@ function App(props){
   }, []) //neoferind dependecy, ne asiguram ca se executa getApiData, o singura data
   //pentru fiecare page load
 
-
   const deleteTodo = value => {
     const todosAfterDelete = (value) => {
       todos.filter(todo => todo !== value)
@@ -50,11 +48,12 @@ function App(props){
   return(
     <div className="App">
       <h1>Todo list</h1>
-      <TodoList list={todos} deleteTodo={deleteTodo}/>
+      <TodoList todos={todos} deleteTodo={deleteTodo}/>
       <TodoForm addTodo={addTodo}/>
     </div>
   )
 } 
+export default App;
 
 
 
@@ -98,41 +97,6 @@ function App(props){
 //       <TodoForm addTodo={this.addTodo}/>
 //     </div>
 //     );
-//   }
-// }
-
-
-export default App;
-
-// TO DO App
-// w8 todo homework
-// <!DOCTYPE html>
-// <html lang="en">
-// <head>
-//     <meta charset="UTF-8">
-//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <title>Document</title>
-//     <link rel="stylesheet" href="style.css">
-
-// </head>
-// <body>
-// <div id="input-box">
-//     <label id="input-label" for="input-text"  class="input-tools">Introduce here your todo: </label>
-//     <input id="input-text" type="text" class="input-tools">
-//     <button id="input-button" class="input-tools"> Add todo</button>
-// </div>
-// <div id="todo-box">
-//     <ul id="todo-list"></ul>
-// </div>
-
-// <script src="./api.js"></script>
-// <script src="./addTodo.js"></script>
-// <script src="./removeTodo.js"></script>
-// <script src="./updateTodo.js"></script>
-// <script src="./displayTodos.js"></script>
-// </body>
-// </html>
 
 
 
