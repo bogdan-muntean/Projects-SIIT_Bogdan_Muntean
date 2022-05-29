@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
+// import {postTodo} from './apiFunctions'
 
 // V2.0
 function TodoForm(props){
@@ -11,7 +12,11 @@ function TodoForm(props){
 
     const handleSubmit = event => {
         event.preventDefault();
-        props.addTodo(todoInput);
+        const newTodo = {
+            name: todoInput,
+            completed: false
+        }
+        props.addTodo(newTodo);
         // alert(`A todo was added: ${todoInput}`);
     }
 

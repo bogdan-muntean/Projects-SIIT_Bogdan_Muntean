@@ -19,10 +19,10 @@ import {useEffect} from 'react'
 import "./App.css";
 import TodoList from './components/todoList';
 import TodoForm from './components/TodoForm';
-import {getTodos, postTodo} from './components/apiFunctions'
+import {getTodos, postTodo, deleteTodoApi} from './components/apiFunctions'
 
 function App(props){
-  const [todos, setTodos] = React.useState()  //hook pentru a actualiza todoList-ul
+  const [todos, setTodos] = React.useState([])  //hook pentru a actualiza todoList-ul
 
   const getApiData = async () => {            //aducem todoList-ul
     const fetchedTodos = await getTodos();
@@ -33,16 +33,13 @@ function App(props){
     getApiData();
   }, []) //neoferind dependecy, ne asiguram ca se executa getApiData, o singura data
   //pentru fiecare page load
-
-  const deleteTodo = value => {
-    const todosAfterDelete = (value) => {
-      todos.filter(todo => todo !== value)
-    }
-    setTodos(todosAfterDelete)
-  }
   
   const addTodo = todo => {
     postTodo(todo)
+  }
+
+  const deleteTodo = todoId => {
+    deleteTodoApi(todoId)
   }
 
   return(
@@ -53,6 +50,7 @@ function App(props){
     </div>
   )
 } 
+
 export default App;
 
 
@@ -82,6 +80,15 @@ export default App;
 //       todos: [...prevState.todos, todo],
 //     }))
 //   }
+
+
+//V1.0 delete todo din array, nu de pe server local
+// const deleteTodo = value => {
+//   const todosAfterDelete = (value) => {
+//     todos.name.filter(todo => todo !== value)
+//   }
+//   setTodos(todosAfterDelete)
+// }
 
 //   deleteTodo = value => {
 //     this.setState(prevState => ({

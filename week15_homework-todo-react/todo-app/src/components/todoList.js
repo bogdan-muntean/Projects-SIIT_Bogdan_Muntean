@@ -1,22 +1,27 @@
 import React from "react";
-
+import { updateTodo } from "./apiFunctions";
 
 const Todo = props => {
         return(
-        <li onClick={() => props.deleteTodo(props.todo)}>{props.todo}</li>
-        // <button onClick={props.checkTodo}>Check</button>
+        <div className="container-todos">
+                <input type="checkbox" checked={props.todo.completed} 
+                onClick={() => {  updateTodo(props.todo, props.todo.completed)      
+                }}></input>
+                <div onClick={() => props.deleteTodo(props.todo.id)}>{props.todo.name}</div>
+        </div>
         )
 }
-
 function TodoList(props) {
         return (
                 <ul>
                 {props.todos.map(todo => (
-                        <Todo todo={todo} key={todo} deleteTodo={props.deleteTodo}/>
+                        <Todo todo={todo} key={todo.id} deleteTodo={props.deleteTodo}/>
                 ))}
           </ul>
         )
 }
+
+
 
 // V2.0
 // const todos = ["Finish homework", "Wash dishes", "Clean room", "Make waffles"]
