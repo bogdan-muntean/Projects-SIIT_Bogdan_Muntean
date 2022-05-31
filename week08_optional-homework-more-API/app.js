@@ -24,20 +24,29 @@
 //complex for now). Also, they should work on HTTPS (Yes) and they should not have CORS no (CORS is a setting 
 //that enables web apps to make calls to an API on a different domain - this is something that is not allowed by default)
 const dogUrl = "https://random.dog/woof.json"
+const catUrl = "https://aws.random.cat/meow"
+const foxUrl = "https://randomfox.ca/floof/"
+
+
+const form = document.getElementById('formId');
+form.addEventListener("submit", function(event){
+    event.preventDefault();
+    console.log("Submit!!")
+
+    const animalSelectValue = document.getElementById("animal-select").value 
+    console.log(animalSelectValue)
+    
+    if(animalSelectValue === 'dog'){
+        const photo = getPhoto(dogUrl)
+        console.log(photo)
+    }
+})
+
 
 async function getPhoto(URL){
-    fetch(URL, {
-        method: "GET",
-    })
-    .then(response => response.json())
+    const response = fetch(URL)
+    const photoResults = response.json()
+    return photoResults;
 }
 
-const dogBtn = document.getElementById("dog-btn")
-const dogContainer = document.getElementById("dog-container")
-dogBtn.onclick = async () => {
-    let result;
-    await getPhoto(dogUrl)
-    .then(result => console.log(result))
-    // .then(result => dogContainer.appendChild(result))
 
-}
