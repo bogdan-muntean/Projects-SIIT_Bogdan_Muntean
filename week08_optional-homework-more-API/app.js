@@ -29,6 +29,9 @@ const foxUrl = "https://randomfox.ca/floof/"
 
 
 const form = document.getElementById('formId');
+const photoContainer = document.getElementById('photo-container')
+const photoToAdd = document.getElementById('animal-img')
+
 form.addEventListener("submit", function(event){
     event.preventDefault();
     console.log("Submit!!")
@@ -37,16 +40,49 @@ form.addEventListener("submit", function(event){
     console.log(animalSelectValue)
     
     if(animalSelectValue === 'dog'){
-        const photo = getPhoto(dogUrl)
-        console.log(photo)
+        let photo = getPhoto(dogUrl).then(data => {
+            console.log(data)
+            photoToAdd.src = `${data.url}`;
+            photoContainer.innerHTML = '';
+            photoContainer.appendChild(photoToAdd) 
+        })
+    } else if(animalSelectValue === 'cat'){
+        let photo = getPhoto(catUrl).then(data => {
+            console.log(data)
+            photoToAdd.src = `${data.file}`;
+            photoContainer.innerHTML = '';
+            photoContainer.appendChild(photoToAdd) 
+        })
+    } else if(animalSelectValue === 'fox'){
+        let photo = getPhoto(foxUrl).then(data => {
+            console.log(data)
+            photoToAdd.src = `${data.image}`;
+            photoContainer.innerHTML = '';
+            photoContainer.appendChild(photoToAdd) 
+        })
     }
 })
 
 
+
 async function getPhoto(URL){
-    const response = fetch(URL)
-    const photoResults = response.json()
-    return photoResults;
+    const response = await fetch(`${URL}`) 
+    return response.json()
+    
+    //Primeam eroare pentru ca declaram response, apoi acordam separat .json()
+    //si abia dupa returnam response, in loc sa dau 'return response.json()' imediat sub.
+    // .then(data = console.log(data))
+    // return data
 }
 
+
+// V1.0 incercare pentru if(animalSelectValue === 'dog')
+// photoToAdd.src = `${photo.url}`;
+// photoContainer.innerHTML = '';
+// photoContainer.appendChild(photoToAdd)
+
+// async () => photo = await getPhoto(dogUrl)
+
+// photo = getPhoto(dogUrl)
+// photo = async () => await getPhoto(dogUrl)
 
