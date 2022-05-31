@@ -93,6 +93,8 @@ let lifes = 3;   //cu atatea vieti incepem
 displayLifes(lifes);
 
 
+
+
 //Player movement
 document.addEventListener("keydown",function(event){
     let oldTop = parseInt(player.style.top);
@@ -101,7 +103,7 @@ document.addEventListener("keydown",function(event){
 
     if(event.key == "ArrowUp"){
         if(oldTop > 10 && checkObstacleBoolean === false){
-            newTop = oldTop - 10
+            let newTop = oldTop - 10
             player.style.top = `${newTop}px`
         } else {
             console.log("Player-ul iese din arie.")
@@ -111,7 +113,7 @@ document.addEventListener("keydown",function(event){
     
     if(event.key == "ArrowRight"){
         if(oldLeft < 360 && checkObstacleBoolean === false){
-            newLeft = oldLeft + 10
+            let newLeft = oldLeft + 10
             player.style.left = `${newLeft}px`
         } else {
             console.log("Player-ul iese din arie.")
@@ -121,7 +123,7 @@ document.addEventListener("keydown",function(event){
     
     if(event.key == "ArrowDown"){
         if(oldTop < 360 && checkObstacleBoolean === false){
-            newTop = oldTop + 10
+            let newTop = oldTop + 10
             player.style.top = `${newTop}px`
         } else {
             console.log("Player-ul iese din arie.")
@@ -131,7 +133,7 @@ document.addEventListener("keydown",function(event){
     
     if(event.key == "ArrowLeft"){
         if(oldLeft > 10 && checkObstacleBoolean === false){
-            newLeft = oldLeft - 10
+            let newLeft = oldLeft - 10
             player.style.left = `${newLeft}px`
         } else {
             console.log("Player-ul iese din arie.")
@@ -139,6 +141,9 @@ document.addEventListener("keydown",function(event){
         }
     }
 });
+
+
+
 //Tips: sa verific cu un watch in console
 //Sa folosesc setInterval pe functia care verfica obstacolul
 //Sa verific parametrii primiti in functie.
