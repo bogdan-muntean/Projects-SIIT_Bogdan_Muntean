@@ -1,0 +1,92 @@
+html,
+body {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    /* background-color: beige; */
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    /* border: solid 1px black; */
+    flex-direction: row;
+    display: inline-flex;
+    width: 96%;
+    justify-content: space-between;
+}
+
+.product {
+    max-width: 400px;
+    /* border: solid 1px red; */
+    margin: 10px 10px;
+    padding: 10px;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.person-img {
+    width: 370px;
+}
+
+.product-title {
+    font-size: 25px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 8px 8px;
+    font-size: 17px;
+    color: #8d8d8d;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+}
+
+.star-img {
+    width: 18px;
+    margin-right: 10px;
+}
+
+.heart-img {
+    width: 18px;
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+.description {
+    margin: 15px 5px;
+    color: #8d8d8d;
+    font-size: 17px;
+    text-align: center;
+}
+
+.cart-view-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cart-button {
+    background-color: black;
+    color: white;
+}
+
+.view-button,
+.cart-button {
+    border: 3px solid black;
+    margin: 15px 10px;
+    padding: 7px 20px;
+    font-weight: 900;
+    font-size: small;
+    font-family: 'Rubik', sans-serif;
+}

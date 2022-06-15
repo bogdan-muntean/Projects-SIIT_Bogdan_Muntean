@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish&display=swap">
+    <title>Invisible Hand Theory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="blog_logo">My Blog</div>
+        <nav>
+            <a href="home.html"><button>Home</button></a>
+            <a href="contact.html"><button>Contact</button></a>
+        </nav>
+    </header>
+    <main style="display:contents;">
+    <p>
+    "Mâna invizibilă" (sau "Mâna de ajutor")<br>
+    "Mâna invizibilă" este o teorie economică dezvoltată de Adam Smith. Propune că atunci când oamenii acționează în
+    interesul lor personal, aceasta aduce beneficii neintenționate societății în general. 
+    <br><br>
+    Într-o economie capitalistă, o mână invizibilă ghidează acțiunile fiecăruia către ceva care va aduce cel mai mult 
+    beneficii societății (sau așa spune teoria).
+    <br><br>
+    Cum funcționează?<br>
+    Teoria mâinii invizibile susține că capitalismul creează un cerc virtuos:<br>
+    Pasul 1: Oamenii încearcă să facă bani. Ei înființează companii care vând bunuri și servicii.<br>
+    Pasul 2: Alți oameni decid singuri cât să cumpere din anumite lucruri. Dacă cumpără mai mult din ceva, companiile produc
+    mai mult din acel lucru. Dacă cumpără mai puțin din ceva, companiile produc mai puțin din acel lucru.<br>
+    Pasul 3: Afacerile bune merg bine, iar afacerile proaste nu.<br>
+    Pasul 4: Se fac mai mulți bani, se cheltuiesc mai mulți bani și mai mulți oameni au locuri de muncă. Toată lumea este
+    mai bine.
+    <blockquote>“It is not from the benevolence of the butcher, the brewer, or the baker that we expect our dinner, but from their
+    regard to their own interest.“
+    
+    —Adam Smith</blockquote>
+    </p>
+    <img style="
+    height: 600px; 
+    width: 600px; 
+    margin: 10px auto 20px;
+    display: block;" 
+    class="center" src="invisible_hand.jpg" alt="invisible hand theory photo">
+    <p>De ce este folosită această teorie?<br>
+        Teoria "Mâinii invizibile" este în general folosită ca argument în favoarea capitalismului (în care oamenii sunt
+    liberi să decidă ce loc de muncă să aibă și cum să-și cheltuiască banii) față de comunism (în care guvernul decide
+    aceste lucruri). 
+    Dar poate fi folosit și ca argument împotriva unei reglementări sau intervenții guvernamentale mai mari în
+    economie.</p>
+    <table border=1 frame=void>
+        <tr>
+            <th></th>
+            <th>Capitalism</th>
+            <th>Economie planificată (Comunism)</th>
+        </tr>
+        <tr>
+            <td>Ce meserie aveți?</td>
+            <td>Sunteți liberi să alegeți (și să vă răzgândiți).</td>
+            <td>Guvernul îți impune ce treabă să faci.</td>
+        </tr>
+        <tr>
+            <td>Ce lucruri poți cumpăra?</td>
+            <td>Orice îți dorești atâta timp cât îți poți permite.</td>
+            <td>Guvernul poate raționaliza bunurile sau le poate distribui pe o bază prestabilită.</td>
+        </tr>
+        <tr>
+            <td>Cine decide ce se produce?</td>
+            <td>Companiile sau alți producători decid.</td>
+            <td>Guvernul le spune ce și cât să producă.</td>
+        </tr>
+        <tr>
+            <td>Cine suportă riscul?</td>
+            <td>Indivizii suportă riscul. Dacă nu poți câștiga bani, ești sărac. Dacă te descurci bine, te îmbogățești.</td>
+            <td>Societatea suportă riscul. Nimeni nu devine bogat sau sărac (teoretic).</td>
+        </tr>
+    </table>
+        <!-- Buton care trimite catre top -->
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        <script>
+            //Get the button
+            var mybutton = document.getElementById("myBtn");
+
+            // When the user scrolls down from the top of the document, show the button
+            window.onscroll = function () { scrollFunction() };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 2 || document.documentElement.scrollTop > 2) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+    </main>
+    <footer>
+        Blog realizat de Bogdan Muntean.
+    </footer>
+</body>
+</html>
