@@ -1,0 +1,14 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+#game-board{
+    width: 600px;
+    height: 600px;
+    background-color: azure;
+    border: 1px solid black;
+}
+button{
+    background-color: red;
+}
