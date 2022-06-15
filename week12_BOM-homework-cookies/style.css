@@ -1,0 +1,11 @@
+body, html{
+    height: 200px;
+}
+#container1{
+    background-color: aliceblue;
+    height: 150px;
+}
+#container2{
+    background-color: rgba(240, 248, 255, 0.582);
+    height: 100px;
+}
